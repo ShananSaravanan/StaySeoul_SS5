@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            Title="Seoul Stay Add On Services"
+             x:Class="StaySeoul_SS5.LoginPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame HeightRequest="50">
+            </Frame>
+            <Label Text="Enter Username and Password" Margin="10,30,0,0" FontSize="14" TextColor="#000000"/>
+            <Frame BorderColor="#000000" Margin="0">
+                <Grid ColumnDefinitions="1*,2*">
+
+                    <Label Text="Username: " Grid.Column="0" Grid.Row="0" Margin="20,10,0,0" VerticalTextAlignment="Center" TextColor="#000000"/>
+                    <Entry x:Name="uname" Placeholder="" Grid.Column="1" Grid.Row="0" Margin="0,0,20,0" PlaceholderColor="#000000" TextColor="#000000" HeightRequest="0"/>
+                    <Label  Text="Password: " Grid.Column="0" Grid.Row="1" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#000000"/>
+                    <Entry x:Name="pwd" Placeholder="" IsPassword="True" Grid.Column="1" Grid.Row="1" Margin="0,0,20,0"/>
+                    <Label x:Name="errorLbl" Text="Invalid credentials" Grid.Column="0" Grid.Row="2" TextColor="Red" IsVisible="false" Margin="0" VerticalTextAlignment="Center"/>
+                    <Button Text="Login" Grid.Column="1" Grid.Row="2" Margin="50,0,20,0" WidthRequest="80" HeightRequest="0" Clicked="Button_Clicked"/>
+
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

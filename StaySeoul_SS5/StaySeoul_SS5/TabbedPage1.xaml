@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StaySeoul_SS5.TabbedPage1"
+            xmlns:local="clr-namespace:StaySeoul_SS5"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom">
+  <!--Pages can be added as references or inline-->
+    
+    
+    <NavigationPage Title="Services">
+        <x:Arguments>
+            <local:ServicesPage Title="Seoul Stay - Services Menu"></local:ServicesPage>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Cart">
+        <x:Arguments>
+            <local:CartPage Title="Seoul Stay - Cart Checkout"/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="About">
+        <x:Arguments>
+            <local:AboutPage Title="Seoul Stay - About Us"/>
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>

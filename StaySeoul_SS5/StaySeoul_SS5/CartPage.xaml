@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StaySeoul_SS5.CartPage"
+             
+             Appearing="ContentPage_Appearing">
+    <ContentPage.Content >
+        <StackLayout >
+            <Frame HeightRequest="400">
+                <ListView x:Name="displayList" RowHeight="100" HeightRequest="50">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition/>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"></ColumnDefinition>
+                                        <ColumnDefinition Width="150"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding iconName}" Grid.Row="1" Grid.Column="0" MinimumWidthRequest="30" VerticalOptions="Center" Margin="10,0,0,0"/>
+                                    <Label Text="{Binding serviceName}" Grid.Row="0" Grid.Column="1" Margin="10,0,0,0" TextColor="#000000"/>
+                                    <Label Text="{Binding payable}" Grid.Row="0" Grid.Column="2" Margin="10,0,0,0" TextColor="#000000"/>
+                                    <Image Source="bin.png" Grid.Row="1" Grid.Column="3" WidthRequest="10" ClassId="{Binding cartID}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+                                                
+                                            </TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label Text="{Binding dateDetail}" Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" TextColor="#000000" Grid.ColumnSpan="3"></Label>
+                                    <Label Text="{Binding pplNo}" Grid.Row="2" Grid.Column="1" Margin="10,0,0,0" TextColor="#000000"></Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Text="Enter coupon label: " Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Margin="20,0,0,0" TextColor="#000000" FontSize="Default"/>
+                <Entry x:Name="couponEntry" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="End"/>
+                <Button x:Name="btn" Text="Submit" Clicked="btn_Clicked" Grid.Row="0" Grid.Column="2" VerticalOptions="Center" Margin="0"/>
+                <Label x:Name="successLbl" Text="" Grid.Row="1" Grid.Column="1" TextColor="#000000" Grid.ColumnSpan="2"/>
+                <Label x:Name="total" Text="Total Amount Payable:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,0,0,0" TextColor="#000000" FontSize="Medium"></Label>
+            </Grid>
+            <Button x:Name="checkoutBtn" Text="Proceed to Checkout" Clicked="checkoutBtn_Clicked"  WidthRequest="200" HorizontalOptions="End" Margin="0,0,20,0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

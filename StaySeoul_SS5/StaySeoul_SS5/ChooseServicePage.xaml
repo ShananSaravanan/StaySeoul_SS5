@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             x:Class="StaySeoul_SS5.ChooseServicePage"
+             x:Name="choosePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame x:Name="calendar" IsVisible="false">
+                <syncfusion:SfCalendar x:Name="datepicker2" OnMonthCellLoaded="datepicker2_OnMonthCellLoaded" SelectionChanged="datepicker2_SelectionChanged" ></syncfusion:SfCalendar>
+            </Frame>
+            <Label x:Name="descitpionLbl" Text="" FontSize="Small" TextColor="#000000" Margin="10,10,10,0" />
+            <Frame x:Name="firstFrame" BorderColor="#000000" Margin="10,10,10,0" HeightRequest="200">
+                <ListView x:Name="services">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ClassId="{Binding ID}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding iconName}" Grid.Column="0" WidthRequest="30" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                                    <Label Text="{Binding Name}" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" TextColor="#000000"/>
+                                    <Label Text="{Binding durationDetail}" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="End" TextColor="#000000" Margin="10,0,0,0"/>
+                                    <Label Text="{Binding Price}" Grid.Column="3" VerticalTextAlignment="Center" HorizontalTextAlignment="End" TextColor="#000000"/>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+                                            
+                                        </TapGestureRecognizer>
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+            
+            <Label x:Name="serviceDescLbl" Margin="10,0" TextColor="#000000" />
+            <Label x:Name="sDesc" Margin="10,0" TextColor="#000000"/>
+            <Grid x:Name="orderGrid" Margin="10,0" IsVisible="false">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                    <ColumnDefinition Width="110"></ColumnDefinition>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Date:" Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="#000000"/>
+                <Entry IsEnabled="False" x:Name="datepicker" Grid.Column="1" Grid.Row="0" VerticalOptions="Center" WidthRequest="60" TextColor="#000000" ></Entry>
+                <ImageButton Source="calendar.png"  Grid.Column="2" Grid.Row="0"  WidthRequest="10" Clicked="dateClicked"/>
+                <Label x:Name="spotLbl"  Grid.Column="3" Grid.Row="0" VerticalTextAlignment="Center" Grid.ColumnSpan="4" HorizontalTextAlignment="Start" FontSize="Micro" TextColor="#000000"></Label>
+                <Label Text="Number of people" Grid.Column="0" Grid.Row="1" VerticalTextAlignment="Center" TextColor="#000000"/>
+                <Entry x:Name="pplEntry" Placeholder="" Keyboard="Numeric" Grid.Column="1" Grid.Row="1" VerticalTextAlignment="Center" TextColor="#000000" TextChanged="pplEntry_TextChanged"/>
+                <Label x:Name="bLbl" Grid.Column="2" Grid.Row="1" VerticalTextAlignment="Center" Grid.ColumnSpan="4" FontSize="Small" TextColor="#000000"></Label>
+                <Label  Text="Additional Notes: " Grid.Column="0" Grid.Row="2" VerticalTextAlignment="Center" TextColor="#000000"></Label>
+                <Entry x:Name="addNotes"  Grid.Column="1" Grid.Row="2" VerticalTextAlignment="Center" Grid.ColumnSpan="3" TextColor="#000000"/>
+                <Label x:Name="payableLbl" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" VerticalTextAlignment="Center" TextColor="#000000"></Label>
+                <Button x:Name="btn" Text="Add to cart" Grid.Column="3" Grid.Row="3" Clicked="btn_Clicked"></Button>
+            </Grid>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

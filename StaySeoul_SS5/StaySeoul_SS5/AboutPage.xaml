@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StaySeoul_SS5.AboutPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,200,0,0" WidthRequest="300"></Image>
+            <Label Text="Seoul Stay Add On Services" HorizontalTextAlignment="Center" FontSize="Large" TextColor="#000000"></Label>
+            <Label x:Name="version" Text="V. 1.0" HorizontalTextAlignment="Center" TextColor="#000000" FontSize="Medium"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
